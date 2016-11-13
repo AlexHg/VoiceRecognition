@@ -1,0 +1,22 @@
+Szukanie słowa w nagraniu:
+\\
+\begin{enumerate}
+\item 
+{
+	Za pomocą korelacji fragmentu i nagrania:
+	\begin{itemize}
+		\item Bezbłędne rozpoznanie identycznego fragmentu w nagraniu
+		\item Rozpoznanie danego słowa wypowiedzianego przez tę samą osobę w innym nagraniu
+		\item Nie udało się rozpoznać słowa w nagraniu głosu innej osoby
+	\end{itemize}
+}
+
+\item
+{
+	10-milisekundowe fragmenty nagrania samego słowa oraz tego, w którym szukane jest słowo poddano 10-punktowej FFT. Następnie została zastosowana korelacja macierzy FFT dla par: 
+	\begin{itemize}
+		\item Macierz FFT nagranego słowa (dla każdego framentu wektor FFT)
+		\item Macierz FFT nagrania, w którym szukamy (j.w.)
+	\end{itemize}
+}
+\end{enumerate}
