@@ -1,21 +1,21 @@
-clear all
+clear all;
 
-[y, Fs] = audioread('data/sl.wav');
-[x, Fs2] = audioread('data/calosc.wav');
-[z, Fs2] = audioread('data/inne.wav');
+dtPart = 0.02;
+keyWordFormants = getFormantsMatrix('data/ksiazka.wav', dtPart);
+wholeFormants = getFormantsMatrix('data/dwieKsiazkWzdaniuiKrzesloMK.wav', dtPart);
 
-%plot(y);
-% Y = fft(y(1:1000),100);
-% plot((1:100),Y);
-subplot(4,1,1);
-plot(y);
-subplot(4,1,2);
+keyWordFormantsLength = length(keyWordFormants);
+wholeFormantsLength =length(wholeFormants);
+lengthDiff = wholeFormantsLength - keyWordFormantsLength;
+comparerResults = [];
 
-plot(x);
-subplot(4,1,3);
-r = xcorr(x,y);
+Istart = 1;
+while(Istart <= lengthDiff)
+Iend = Istart + keyWordFormantsLength-1;
+comparerResults(Istart) = compareFormants(keyWordFormants, wholeFormants(:, Istart : Iend));
+Istart = Istart + 1;
+end
 
-plot(r);
-subplot(4,1,4);
-rw = xcorr(y,z);
-plot(rw);
+[minDiff, IminDiff] = min(comparerResults);
+xAxis = (1:length(comparerResults))*dtPart;
+plot(xAxis, comparerResults)

@@ -65,3 +65,13 @@ slprj/
 
 # Session info
 octave-workspace
+
+
+# =========================
+# Latex
+# =========================
+
+*.aux
+*.log
+*.pdf
+*.synctex.gz
