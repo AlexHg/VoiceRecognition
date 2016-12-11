@@ -1,10 +1,20 @@
+clear all;
+clc;
+clear figure;
+
 %% 3-5 s³ów nagrane 10 krotnie
-%strcat('f', num2str(i));\
-filename = 'data/ksiazka.wav';
-
-%% Wspolczynniki po banku filtrow dla 1 pliku
-coeffs = getCoeffs(filename, 0.1);
-
-%% Wyci¹gn¹c wspó³czyniniki z poprzedniego punktu i utworzyæ macierz
+filesCount = 3;
+%fileNameBegin = 'data/ksiazka';
+fileNameBegin = 'data/krzeslo';
+for i = 1:filesCount
+    filename = strcat(fileNameBegin, num2str(i), '.wav');
+    
+    %% Wspolczynniki po banku filtrow dla 1 pliku
+    dtPart = 0.1;
+    fftPoints = 128;
+    filtersBankLength = 10;
+    coeffs = getCoeffs(filename, dtPart, fftPoints, filtersBankLength);
+    imagesc(coeffs);
+end
 
 %% Sprawdzic powtarzalnoœæ - utworzon¹ macierz przedstawiæ np. graficznie, korelacja macierzy

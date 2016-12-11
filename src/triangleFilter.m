@@ -1,20 +1,13 @@
-clear all
-clc
+function [coeffs] = triangleFilter(fftResult, filtersBankLength)
 
-series_length = 128;
-triangles_count = 10;
+seriesLength = length(fftResult);
+freqMiddles = round(linspace(1, seriesLength, filtersBankLength + 2));
+coeffs = zeros(1, filtersBankLength);
 
-triangle_length = series_length / triangles_count;
-
-srodki_czestotliwosci = linspace(1, series_length, triangles_count + 2);
-%srodki_czestotliwosci = round(srodki_czestotliwosci(2:triangles_count+1))
-[word, Fs] = audioread('data/ksiazka.wav');
-for i = 1:triangles_count
-   filter = singleFilter(srodki_czestotliwosci(i),srodki_czestotliwosci(i+1),srodki_czestotliwosci(i+2), series_length); 
-   plot(filter, 'color',rand(1,3));
-   hold on
+for i = 1:filtersBankLength
+   filter = singleFilter(freqMiddles(i),freqMiddles(i+1),freqMiddles(i+2), seriesLength); 
+   coeffs(i) = sum(filter*fftResult);
+   %plot(filter, 'color',rand(1,3));
+   %hold on
 end
-%% get filter
-
-
 
