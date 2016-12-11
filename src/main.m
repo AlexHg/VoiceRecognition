@@ -1,21 +1,10 @@
-clear all;
+%% 3-5 s³ów nagrane 10 krotnie
+%strcat('f', num2str(i));\
+filename = 'data/ksiazka.wav';
 
-dtPart = 0.02;
-keyWordFormants = getFormantsMatrix('data/ksiazka.wav', dtPart);
-wholeFormants = getFormantsMatrix('data/dwieKsiazkWzdaniuiKrzesloMK.wav', dtPart);
+%% Wspolczynniki po banku filtrow dla 1 pliku
+coeffs = getCoeffs(filename, 0.1);
 
-keyWordFormantsLength = length(keyWordFormants);
-wholeFormantsLength =length(wholeFormants);
-lengthDiff = wholeFormantsLength - keyWordFormantsLength;
-comparerResults = [];
+%% Wyci¹gn¹c wspó³czyniniki z poprzedniego punktu i utworzyæ macierz
 
-Istart = 1;
-while(Istart <= lengthDiff)
-Iend = Istart + keyWordFormantsLength-1;
-comparerResults(Istart) = compareFormants(keyWordFormants, wholeFormants(:, Istart : Iend));
-Istart = Istart + 1;
-end
-
-[minDiff, IminDiff] = min(comparerResults);
-xAxis = (1:length(comparerResults))*dtPart;
-plot(xAxis, comparerResults)
+%% Sprawdzic powtarzalnoœæ - utworzon¹ macierz przedstawiæ np. graficznie, korelacja macierzy
