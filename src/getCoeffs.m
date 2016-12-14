@@ -1,13 +1,12 @@
-function [coeffs] = getCoeffs(filename, dtPart, fftPoints, filtersBankLength)
+function [coeffs] = getCoeffs(filename, dtPart)
 
 [signal, Fs] = audioread(filename);
-
 
 
 %% Divide signal into parts
 I0 = 1;
 totalSampleCount = length(signal);
-samplePartCount = round(Fs*dtPart);
+samplePartCount = round(Fs*dtPart)-1;
 
 i=1;
 coeffs = [];
@@ -22,11 +21,11 @@ while (I0 + samplePartCount <= totalSampleCount)
     P2 = abs(fftResult/L);
     P1 = P2(1:L/2+1);
     P1(2:end-1) = 2*P1(2:end-1);
-    f = Fs*(0:(L/2))/L;
-    plot(f,P1);
+    samplesFreq = Fs*(0:(L/2))/L;
+    plot(samplesFreq,P1);
     
     %% Bank filtrów - 8-12 filtrów, w czêstotliwoœciach mowy (5-8kHz - do sprawdzenia)
-    coeffs(:,i) = triangleFilter(fftResult, filtersBankLength);
+    coeffs(:,i) = triangleFilter(P1, samplesFreq);
     
     I0 = Iend;
     i = i+1;

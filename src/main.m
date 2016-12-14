@@ -3,7 +3,7 @@ clc;
 clear figure;
 
 %% 3-5 s³ów nagrane 10 krotnie
-filesCount = 3;
+filesCount = 1;
 %fileNameBegin = 'data/ksiazka';
 fileNameBegin = 'data/krzeslo';
 for i = 1:filesCount
@@ -13,7 +13,7 @@ for i = 1:filesCount
     dtPart = 0.1;
     fftPoints = 128;
     filtersBankLength = 10;
-    coeffs = getCoeffs(filename, dtPart, fftPoints, filtersBankLength);
+    coeffs = getCoeffs(filename, dtPart);
     imagesc(coeffs);
 end
 
