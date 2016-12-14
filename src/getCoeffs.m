@@ -22,7 +22,7 @@ while (I0 + samplePartCount <= totalSampleCount)
     P1 = P2(1:L/2+1);
     P1(2:end-1) = P1(2:end-1);
     samplesFreq = Fs*(0:(L/2))/L;
-    plot(samplesFreq,P1);
+    %plot(samplesFreq,P1);
     
     %% Bank filtrów - 8-12 filtrów, w czêstotliwoœciach mowy (5-8kHz - do sprawdzenia)
     coeffs(:,i) = triangleFilter(P1, samplesFreq);
