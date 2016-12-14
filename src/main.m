@@ -17,7 +17,7 @@ for i = 1:filesCount
     coeffs = getCoeffs(filename, dtPart);
     
  %   subplot(1,2,1), subimage(imagesc(coeffs))
-    subplot(3,3,i)
+   subplot(3,3,i)
    imagesc(coeffs);
 end
 %axis([0 7000 0 4]) 
