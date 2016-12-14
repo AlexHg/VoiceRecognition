@@ -1,14 +1,15 @@
-clear all;
+% clear all;
 clc;
 clear figure;
 
-%% 3-5 s³ów nagrane 10 krotnie
+%% 3-5 s³ów nagrane 9-krotnie
 filesCount = 9;
-%fileNameBegin = 'data/ksiazka';
-fileNameBegin = 'data/krzeslo';
+% fileNameBegin = 'data/ksiazka/ksiazka';
+% fileNameBegin = 'data/krzeslo/krzeslo';
+ fileNameBegin = 'data/fotel/fotel';
+
 for i = 1:filesCount
-   % filename = strcat(fileNameBegin, num2str(i), '.wav');
-    filename = strcat(fileNameBegin, '1', '.wav');
+    filename = strcat(fileNameBegin, num2str(i), '.wav');
     %% Wspolczynniki po banku filtrow dla 1 pliku
     dtPart = 0.1;
     fftPoints = 128;
