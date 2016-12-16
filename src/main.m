@@ -4,9 +4,9 @@ clear figure;
 
 %% 3-5 s³ów nagrane 9-krotnie
 filesCount = 9;
-  fileNameBegin = 'data/ksiazka/ksiazka';
- %fileNameBegin = 'data/krzeslo/krzeslo';
- %fileNameBegin = 'data/fotel/fotel';
+fileNameBegin = 'data/ksiazkaAS/ksiazka';
+% fileNameBegin = 'data/krzesloAS/krzeslo';
+% fileNameBegin = 'data/fotelAS/fotel';
 coeffs = cell(1,filesCount);
 for i = 1:filesCount
     filename = strcat(fileNameBegin, num2str(i), '.wav');
