@@ -4,9 +4,8 @@ clear figure;
 
 %% 3-5 s?�w nagrane 9-krotnie
 filesCount = 9;
-fileNameBegin = 'data/ksiazkaAS/ksiazka';
-% fileNameBegin = 'data/krzesloAS/krzeslo';
-% fileNameBegin = 'data/fotelAS/fotel';
+fileNameBegin = 'data/krzesloMK/krzeslo';
+
 coeffs = cell(1,filesCount);
 for i = 1:filesCount
     filename = strcat(fileNameBegin, num2str(i), '.wav');
@@ -21,7 +20,7 @@ for i = 1:filesCount
 end
 %axis([0 7000 0 4]) 
 
-% obliczone wsp�?czynniki zpaisujemy do pliku
-%save('mat/nazwaDanych.mat', 'coefs')
+% obliczone wspolczynniki zpaisujemy do pliku
+save('mat/krzeslaMK.mat', 'coeffs')
 
-%% Sprawdzic powtarzalno?? - utworzon? macierz przedstawi? np. graficznie, korelacja macierzy
+%% Sprawdzic powtarzalnosc - utworzona macierz przedstawic np. graficznie, korelacja macierzy
