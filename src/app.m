@@ -1,28 +1,38 @@
 clear all
 filename = 'data/ksiazkaSzklanka.wav';
 dtPart = 0.01;
-matchThreshold = 0.9;
+matchThreshold = 0.65;
 
 matDir = 'mat/';
-matFiles = {'ksiazki', 'krzesla'};
+matFiles = {'ksiazkiAS', 'krzeslaAS', 'foteleAS', 'ksiazkiMK', 'krzeslaMK', 'foteleMK', 'ksiazkiJP', 'krzeslaJP', 'foteleJP'};
 
-analyzedFileCoeaffs = getCoeffs(filename, dtPart);
+analyzedFileCoeffs = getCoeffs(filename, dtPart);
 
-totalFrames = length(analyzedFileCoeaffs);
-% iterujemy po wszystkich ramkchach, szukajac 'trafienia'
+totalFrames = length(analyzedFileCoeffs);
+% iterujemy po wszystkich ramkach, szukajac 'trafienia'
 for i=1:80 % totalFrames
-    % wczyta? aktualnie analizowan? próbk?
+    % wczytac aktualnie analizowana próbke
     for z = 1 : length(matFiles)
-        file = strcat('mat/',matFiles(1),'.mat');
+        file = strcat('mat/',matFiles(z),'.mat');
         % z jakiegos powodu file jest typu cell, trzeba wyciagnac stringa
         file = file{1};
         %ladujemy zmienna coeffs
         load(file);
-        for j= 1:length(coeffs)
+        
+        coefLeng = length(coeffs);
+        for j = 1:coefLeng
           word = coeffs{j};
           wordLength = size(word,2);
-          similarity = corelation(word, analyzedFileCoeaffs(:, i:i+ wordLength));
+          if (j+wordLength-1 > totalFrames)
+              %text = sprintf('Nie znaleziono slowa w pliku: %s', file)
+              break;
+          end
           
+          similarity = corelation(word, analyzedFileCoeffs(:, i:i+ wordLength));         
+          if (similarity >= matchThreshold)
+              text = sprintf('Znaleziono slowo! Plik: %s, index: %d', file, j)
+              break;
+          end
         end
     end
 end
