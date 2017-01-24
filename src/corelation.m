@@ -1,4 +1,4 @@
-% zwraca wspó³czynnik korelacji pomiêdzy macierzami o dowolnych rozmiarach
+% zwraca wspó?czynnik korelacji pomi?dzy macierzami o dowolnych rozmiarach
 function [result] = corelation(a, b)
 
 aSize = size(a);
