@@ -21,11 +21,12 @@
 
 \documentclass{article}
 
-\usepackage[version=3]{mhchem} % Package for chemical equation typesetting
 \usepackage{siunitx} % Provides the \SI{}{} and \si{} command for typesetting SI units
 \usepackage{graphicx} % Required for the inclusion of images
-\usepackage{natbib} % Required to change bibliography style to APA
+%\usepackage{natbib} % Required to change bibliography style to APA
 \usepackage{amsmath} % Required for some math elements 
+\usepackage[margin=1.5in]{geometry}
+
 
 \setlength\parindent{0pt} % Removes all indentation from paragraphs
 
@@ -35,18 +36,35 @@
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-%\usepackage{times} % Uncomment to use the Times New Roman font
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{float}
+\usepackage[table]{xcolor}
+\usepackage{enumerate}
+\usepackage{subcaption}
+
+
+\graphicspath{ {images/} }
+
 
 %----------------------------------------------------------------------------------------
 %	DOCUMENT INFORMATION
 %----------------------------------------------------------------------------------------
 
-\title{Projektowanie systemów z dostępem w języku naturalnym\\ Temat: Opracowanie aplikacji umożliwiającej w „mówionym” tekście (nagraniu) wykrycie określonych słów} % Title
-\date{Data oddania: }
-\author{Joanna Piątek, nr indeksu: 199966\\
-Maciej Kiedrowski, nr indeksu: 200105} % Author name
+\title{Projektowanie systemów z dostępem w języku naturalnym\\
+	\vspace{5mm}
+	\textbf{Opracowanie aplikacji umożliwiającej w „mówionym” tekście (nagraniu) wykrycie
+		określonych słów}
+}
 
-%%\date{\today} % Date for the report
+\author{\\
+	\\\textbf{Autorzy:}
+	\\Maciej Kiedrowski, nr indeksu: 200105
+	\\Joanna Piątek, nr indeksu: 199966
+	\\\\
+	\\
+	\\\textbf{Grupa:} Czwartek TN/11:15}
+\date{\textbf{Data oddania:} 26.01.2017}
 
 \begin{document}
 
@@ -63,7 +81,9 @@ Prowadzący: & dr inż. Dariusz Banasiak
 \end{center}
 
 
-\section{Skrót}
+\newpage
+\tableofcontents 	%spis tresci
+\newpage
 \input{./Proby}
  
 % If you wish to include an abstract, uncomment the lines below

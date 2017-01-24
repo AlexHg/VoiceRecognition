@@ -2,11 +2,11 @@
 clc;
 clear figure;
 
-%% 3-5 s?ów nagrane 9-krotnie
+%% 3-5 s?ï¿½w nagrane 9-krotnie
 filesCount = 9;
-fileNameBegin = 'data/ksiazka/ksiazka';
- %fileNameBegin = 'data/krzeslo/krzeslo';
- %fileNameBegin = 'data/fotel/fotel';
+fileNameBegin = 'data/ksiazkaAS/ksiazka';
+% fileNameBegin = 'data/krzesloAS/krzeslo';
+% fileNameBegin = 'data/fotelAS/fotel';
 coeffs = cell(1,filesCount);
 for i = 1:filesCount
     filename = strcat(fileNameBegin, num2str(i), '.wav');
@@ -21,7 +21,7 @@ for i = 1:filesCount
 end
 %axis([0 7000 0 4]) 
 
-% obliczone wspó?czynniki zpaisujemy do pliku
+% obliczone wspï¿½?czynniki zpaisujemy do pliku
 %save('mat/nazwaDanych.mat', 'coefs')
 
 %% Sprawdzic powtarzalno?? - utworzon? macierz przedstawi? np. graficznie, korelacja macierzy
