@@ -1,6 +1,6 @@
 clear all
 filename = 'data/ksiazkaSzklanka.wav';
-dtPart = 0.1;
+dtPart = 0.01;
 matchThreshold = 0.9;
 
 matDir = 'mat/';
