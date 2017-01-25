@@ -1,4 +1,7 @@
 \contentsline {section}{\numberline {1}Wst\IeC {\k e}p}{3}
 \contentsline {section}{\numberline {2}Za\IeC {\l }o\IeC {\.z}enia projektowe}{3}
 \contentsline {section}{\numberline {3}Implementacja}{3}
-\contentsline {section}{\numberline {4}Pr\IeC {\'o}by}{3}
+\contentsline {subsection}{\numberline {3.1}Plan implementacji}{3}
+\contentsline {subsection}{\numberline {3.2}Baza wzorc\IeC {\'o}w}{4}
+\contentsline {subsection}{\numberline {3.3}Ekstrakcja parametr\IeC {\'o}w}{4}
+\contentsline {section}{\numberline {4}Pr\IeC {\'o}by}{4}
