@@ -32,8 +32,8 @@ Przy gromadzeniu nagrań został uwzględniony fakt, że dla różnych osób rej
 \subsection{Ekstrakcja parametrów}
 
 Po podzieleniu nagranych słów na odcinki odpowiedniej długości poddano je działaniu kilku algorytmów. Pierwszy z nich to szybka transformata Fouriera o 128-miu punktach, a konkretnie część rzeczywista tej transformaty. \\
-Dla tak przetworzonych danych można było zastosować bank filtrów. Dla potrzeb projektu wybrano zestaw składający się z 10-ciu filtrów trójkątnych w skali melowej. Dane powstałe w wyniku operacji związanych z FFT przemnożono przez stworzony w ten sposób filtr. Na ilustracji \ref{rys:fftFiltry}. zobrazowano relację, jaka występuje pomiędzy tymi danymi. \\
-W wyniku powyższych działań dla każdego słowa otrzymano 
+Dla tak przetworzonych danych można było zastosować bank filtrów. Dla potrzeb projektu wybrano zestaw składający się z 10-ciu filtrów trójkątnych w skali melowej. Ekstrakcji dokonano w zakresie 160-6600 Hz. Dane powstałe w wyniku operacji związanych z FFT przemnożono przez stworzony w ten sposób filtr. Na ilustracji \ref{rys:fftFiltry}. zobrazowano relację, jaka występuje pomiędzy tymi danymi. \\
+W wyniku powyższych działań dla każdego słowa otrzymano macierz parametrów.
 
 \begin{figure}[H]
 	\centering
