@@ -2,15 +2,15 @@
 clc;
 clear figure;
 
-%% 3-5 s?�w nagrane 9-krotnie
+%% 3-5 slow nagrane 9-krotnie
 filesCount = 9;
-fileNameBegin = 'data/ksiazkaAS/ksiazka';
+fileNameBegin = 'data/fotelAS/fotel';
 
 coeffs = cell(1,filesCount);
 for i = 1:filesCount
     filename = strcat(fileNameBegin, num2str(i), '.wav');
     %% Wspolczynniki po banku filtrow dla 1 pliku
-    dtPart = 0.01;
+    dtPart = 0.05;
     fftPoints = 128;
     filtersBankLength = 10;
     coeffs{i} = getCoeffs(filename, dtPart);    
@@ -21,6 +21,6 @@ end
 %axis([0 7000 0 4]) 
 
 % obliczone wspolczynniki zpaisujemy do pliku
-save('mat/ksiazkiAS.mat', 'coeffs')
+save('mat/foteleAS.mat', 'coeffs')
 
 %% Sprawdzic powtarzalnosc - utworzona macierz przedstawic np. graficznie, korelacja macierzy
