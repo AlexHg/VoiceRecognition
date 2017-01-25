@@ -19,7 +19,7 @@ while (I0 + samplePartCount <= totalSampleCount)
     fftResult = fft(part);
     
     P2 = abs(fftResult)/20;
-    P1 = P2(1:L/2+1);
+    P1 = P2(1:round(L/2+1));
     P1(2:end-1) = P1(2:end-1);
     samplesFreq = Fs*(0:(L/2))/L;
     %plot(samplesFreq,P1);
