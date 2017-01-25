@@ -1,10 +1,12 @@
 clear all
-filename = 'data/ksiazkaSzklanka.wav';
+clc
+% filename = 'data/ksiazkaSzklanka.wav';
+ filename = 'data/zdaniaTestowe/ksiazka_x5_MK.wav';
 % filename = 'data/ksiazkaMK/ksiazka_10_MK.wav';
 
 
-dtPart = 0.1;
-matchThreshold = 0.85;
+dtPart = 0.05;
+matchThreshold = 0.7;
 
 matDir = 'mat/';
 % matFiles = {'ksiazkiAS', 'krzeslaAS', 'foteleAS', 'ksiazkiMK', 'krzeslaMK', 'foteleMK', 'ksiazkiJP', 'krzeslaJP', 'foteleJP'};
@@ -14,8 +16,13 @@ analyzedFileCoeffs = getCoeffs(filename, dtPart);
 totalFrames = length(analyzedFileCoeffs);
 % iterujemy po wszystkich ramkach, szukajac 'trafienia'
 match = false;
+skipNextFramesCounter = 0;
 for i = 1 : totalFrames
     match = false;
+    if skipNextFramesCounter > 0
+        skipNextFramesCounter = skipNextFramesCounter -1;
+        continue;
+    end
     % wczytac aktualnie analizowana próbke
     for z = 1 : length(matFiles)
         if (match == true)
@@ -38,8 +45,9 @@ for i = 1 : totalFrames
 
           similarity = corelation(word, analyzedFileCoeffs( : , i:i+ wordLength));         
           if (similarity >= matchThreshold)
-              text = sprintf('Znaleziono slowo! Plik: %s, index: %f2', file, i * dtPart)
+              sprintf('Znaleziono slowo! Plik: %s, czas: %f2, podobienstwo: %f2', file, i * dtPart,similarity)
               match = true;
+              skipNextFramesCounter = wordLength;
               break;
           end
         end
