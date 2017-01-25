@@ -9,8 +9,8 @@ dtPart = 0.05;
 matchThreshold = 0.7;
 
 matDir = 'mat/';
-% matFiles = {'ksiazkiAS', 'krzeslaAS', 'foteleAS', 'ksiazkiMK', 'krzeslaMK', 'foteleMK', 'ksiazkiJP', 'krzeslaJP', 'foteleJP'};
-matFiles = {'ksiazkiMK'};
+%matFiles = {'ksiazkiAS', 'krzeslaAS', 'foteleAS', 'ksiazkiMK', 'krzeslaMK', 'foteleMK', 'ksiazkiJP', 'krzeslaJP', 'foteleJP'};
+matFiles = {'ksiazkiMK', 'ksiazkiAS', 'ksiazkiJP'};
 analyzedFileCoeffs = getCoeffs(filename, dtPart);
 
 totalFrames = length(analyzedFileCoeffs);
