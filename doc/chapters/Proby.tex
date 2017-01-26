@@ -1,23 +1,67 @@
 \section{Testy}
-Szukanie słowa w nagraniu:
-\\
-\begin{enumerate}
-\item 
-{
-	Za pomocą korelacji fragmentu i nagrania:
-	\begin{itemize}
-		\item Bezbłędne rozpoznanie identycznego fragmentu w nagraniu
-		\item Rozpoznanie danego słowa wypowiedzianego przez tę samą osobę w innym nagraniu
-		\item Nie udało się rozpoznać słowa w nagraniu głosu innej osoby
-	\end{itemize}
-}
 
-\item
-{
-	10-milisekundowe fragmenty nagrania samego słowa oraz tego, w którym szukane jest słowo poddano 10-punktowej FFT. Następnie została zastosowana korelacja macierzy FFT dla par: 
-	\begin{itemize}
-		\item Macierz FFT nagranego słowa (dla każdego framentu wektor FFT)
-		\item Macierz FFT nagrania, w którym szukamy (j.w.)
-	\end{itemize}
+Testowanie działania aplikacji zostało przeprowadzone dla dwóch wartości progu podobieństwa: 0,85 i 0,80. Druga wartość została sprawdzonam, by upewnić się, że próg 0,85 nie jest zbyt wysoki. Wyniki testów przedstawiono w tabelach 2. i 3. Kolumny \textit{True positive} i \textit{False positive} oznaczają kolejno: prawidłowe rozpoznanie słowa oraz brak detekcji lub wykrycie niewłaściwego wyrazu.\\
+W tabeli 4. przedstawiono średnie procentowe wartości rozpoznań w stosunku do słów, które powinny zostać znalezione.
+
+
+\begin{table}
+	\centering
+	\caption{Wyniki dla progu podobieństwa 0,85}
+	\resizebox{\columnwidth}{!}{%
+	\begin{tabular}{ | c | c | c | c | c | }
+		\hline
+		\textbf{L.p.} & \textbf{Nazwa nagrania} & \textbf{Słowa do wykrycia} & \textbf{True positive} & \textbf{False positive} \\
+		\hline
+		1. & wszystko\_JP & 4 & 1 & 0  \\ \hline
+		2. & wszystko\_JP2 & 4 & 2 & 1  \\ \hline
+		3. & fotel\_x3\_JP & 3 & 1 & 2  \\ \hline
+		4. & ksiazka\_x3\_JP & 3 & 1 & 0  \\ \hline
+		5. & krzeslo\_x3\_JP & 3 & 1 & 0  \\ \hline
+		6. & ksiazka\_x5\_MK\_laud & 5 & 5 & 0 \\ \hline
+		7. & ksiazka\_x5\_MK & 5 & 1 & 2 \\ \hline
+		8. & ksiazka\_x4\_2\_MK & 4 & 2 & 0 \\ \hline
+		9. & ksiazka\_x4\_fotel\_x1\_MK\_laud & 5 & 5 & 0  \\ \hline
+		10. & ksiazka\_krzeslo\_fotel\_MK\_3 & 3 & 0 & 2  \\ \hline
+		11. & ksiazka\_krzeslo\_fotel\_MK\_2 & 3 & 1 & 3  \\ \hline
+		12. & ksiazka\_krzeslo\_fotel\_MK & 3 & 0 & 4  \\ \hline
+	\end{tabular}
 }
-\end{enumerate}
+\end{table}
+
+\begin{table}
+	\centering
+	\caption{Wyniki dla progu podobieństwa 0,8}
+	\resizebox{\columnwidth}{!}{%
+		\begin{tabular}{ | c | c | c | c | c | }
+			\hline
+			\textbf{L.p.} & \textbf{Nazwa nagrania} & \textbf{Słowa do wykrycia} & \textbf{True positive} & \textbf{False positive} \\
+			\hline
+			1. & wszystko\_JP & 4 & 2 & 3  \\ \hline
+			2. & wszystko\_JP2 & 4 & 3 & 4  \\ \hline
+			3. & fotel\_x3\_JP & 3 & 1 & 3  \\ \hline
+			4. & ksiazka\_x3\_JP & 3 & 1 & 0  \\ \hline
+			5. & krzeslo\_x3\_JP & 3 & 1 & 1  \\ \hline
+			6. & ksiazka\_x5\_MK\_laud & 5 & 5 & 0  \\ \hline
+			7. & ksiazka\_x5\_MK & 5 & 1 & 5  \\ \hline
+			8. & ksiazka\_x4\_2\_MK & 4 & 1 & 2 \\ \hline
+			9. & ksiazka\_x4\_fotel\_x1\_MK\_laud & 5 & 5 & 2  \\ \hline
+			10. & ksiazka\_krzeslo\_fotel\_MK\_3 & 3 & 3 & 4  \\ \hline
+			11. & ksiazka\_krzeslo\_fotel\_MK\_2 & 3 & 1 & 5 \\ \hline
+			12. & ksiazka\_krzeslo\_fotel\_MK & 3 & 2 & 9  \\ \hline
+		\end{tabular}
+	}
+\end{table}
+
+\begin{table}
+	\centering
+	\caption{Średnie procentowe wartości rozpoznań względem ilości szukanych słów}
+	\resizebox{\columnwidth}{!}{%
+		\begin{tabular}{ | c | c | c | }
+			\hline
+			\textbf{Próg podobieństwa} & \textbf{True positive [\%]} & \textbf{False positive [\%]}  \\
+			\hline
+			0,85 & 39,86 & 35,97  \\ \hline
+			0,80 & 55,83 & 91,52  \\ \hline
+		\end{tabular}
+	}
+\end{table}

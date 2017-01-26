@@ -11,3 +11,4 @@
 \contentsline {subsection}{\numberline {6.1}Podzia\IeC {\l } nagrania na s\IeC {\l }owa}{10}
 \contentsline {subsection}{\numberline {6.2}Wyr\IeC {\'o}wnanie poziomu d\IeC {\'z}wi\IeC {\k e}ku}{10}
 \contentsline {subsection}{\numberline {6.3}Klasyfikator}{10}
+\contentsline {subsection}{\numberline {6.4}Pr\IeC {\'o}g podobie\IeC {\'n}stwa}{10}

@@ -14,3 +14,6 @@ Możliwym usprawnieniem w tej kwestii byłaby normalizacja poziomu głośności,
 \subsection{Klasyfikator}
 W projekcie jako klasyfikatora użyto korelacji pomiędzy macierzami parametrów. Klasyfikator ten ma wiele wad, dla poprawnej klasyfikacji słowa wymaga m. in. by wzorzec i analizowane słowo były dokładnie tej samej długości, zmiana intonacji czy długości trwania pojedynczej głoski uniemożliwia poprawne rozpoznanie. Użycie innego klasyfikatora mogłoby pozwolić ograniczyć wielkość bazy wzorców potrzebnych przy klasyfikacji, pozytywnie wpływając na wynik klasyfikacji jak również prędkość działania programu.
 
+\subsection{Próg podobieństwa}
+
+Wybrany na początku próg równy 0,85 okazał się całkiem optymalny. Wprawdzie ilość prawidłowych rozpoznań - ok. 39\% - nie jest zadowalającym wynikiem, ale w tym wypadku ilość prawidłowych i nieprawidłowych rozpoznań jest mniej więcej na podobnym poziomie. Natomiast przy zmniejszeniu progu do 0,80 procent właściwych detekcji słów wzrasta, ale niestety odsetek rozpoznań nieprawidłowych staje się drastycznie wysoki, co nie pozwala na uznanie wiarygodności wyników.
