@@ -9,9 +9,9 @@ coeffs = zeros(1, filtersBankLength);
 for i = 1:filtersBankLength
    filter = singleFilter(middlesIndexes(i),middlesIndexes(i+1),middlesIndexes(i+2), seriesLength); 
    coeffs(i) = sum(filter*fftResult);
-   plot(samplesFreq, filter, 'color',rand(1,3));
-   hold on
+%    plot(samplesFreq, filter, 'color',rand(1,3));
+%    hold on
 end
 
- plot(samplesFreq, fftResult, 'color', 'blue');
- axis([0 7000 0 5]) 
+%  plot(samplesFreq, fftResult, 'color', 'blue');
+%  axis([0 7000 0 5]) 

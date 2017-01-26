@@ -1,16 +1,16 @@
 clear all
 clc
 % filename = 'data/ksiazkaSzklanka.wav';
- filename = 'data/zdaniaTestowe/ksiazka_x5_MK.wav';
+%  filename = 'data/zdaniaTestowe/ksiazka_x5_MK.wav';
 % filename = 'data/ksiazkaMK/ksiazka_10_MK.wav';
-
+filename = 'data/zdaniaTestowe/wszystko_JP2.wav';
 
 dtPart = 0.05;
-matchThreshold = 0.7;
+matchThreshold = 0.85;
 
 matDir = 'mat/';
-%matFiles = {'ksiazkiAS', 'krzeslaAS', 'foteleAS', 'ksiazkiMK', 'krzeslaMK', 'foteleMK', 'ksiazkiJP', 'krzeslaJP', 'foteleJP'};
-matFiles = {'ksiazkiMK', 'ksiazkiAS', 'ksiazkiJP'};
+matFiles = {'ksiazkiAS', 'krzeslaAS', 'foteleAS', 'ksiazkiMK', 'krzeslaMK', 'foteleMK', 'ksiazkiJP', 'krzeslaJP', 'foteleJP'};
+% matFiles = {'ksiazkiMK', 'ksiazkiAS', 'ksiazkiJP'};
 analyzedFileCoeffs = getCoeffs(filename, dtPart);
 
 totalFrames = length(analyzedFileCoeffs);

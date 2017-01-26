@@ -26,14 +26,14 @@ Poszczególne etapy zostały dokładnie opisane w kolejnych punktach dokumentu.
 \subsection{Baza wzorców}
 
 Na początku należało wyznaczyć słowa, które mają być wyszukiwane w nagraniach. W tym przypadku zdecydowano się na następujące: ,,książka``, ,,krzesło`` oraz ,,fotel``. \\
-Przy gromadzeniu nagrań został uwzględniony fakt, że dla różnych osób rejestrowane parametry dźwięków mogą się różnić. Dlatego swego głosu do celów badawczych udzieliły cztery osoby - po dwie każdej płci. Ostatecznie w bazie znalazły się trzy słowa nagrane przez cztery osoby, po dziewięć razy każde, a więc jeden wyraz został powtórzony 36 razy.
+Przy gromadzeniu nagrań został uwzględniony fakt, że dla różnych osób rejestrowane parametry dźwięków mogą się różnić. Dlatego swego głosu do celów badawczych udzieliły osoby różnej płci. Ostatecznie w bazie znalazły się trzy słowa nagrane przez trzy osoby, po dziewięć razy każde, a więc jeden wyraz został powtórzony 27 razy.
 
 
 \subsection{Ekstrakcja parametrów}
 
 Po podzieleniu nagranych słów na odcinki odpowiedniej długości poddano je działaniu kilku algorytmów. Pierwszy z nich to szybka transformata Fouriera o 128-miu punktach, a konkretnie część rzeczywista tej transformaty. \\
 Dla tak przetworzonych danych można było zastosować bank filtrów. Dla potrzeb projektu wybrano zestaw składający się z 10-ciu filtrów trójkątnych w skali melowej. Ekstrakcji dokonano w zakresie 160-6600 Hz. Dane powstałe w wyniku operacji związanych z FFT przemnożono przez stworzony w ten sposób filtr. Na ilustracji \ref{rys:fftFiltry}. zobrazowano relację, jaka występuje pomiędzy tymi danymi. \\
-W wyniku powyższych działań dla każdego słowa otrzymano macierz parametrów.
+W wyniku powyższych działań dla każdego słowa otrzymano macierz parametrów (po jednym wektorze dla odcinka czasowego).
 
 \begin{figure}[H]
 	\centering
@@ -41,3 +41,28 @@ W wyniku powyższych działań dla każdego słowa otrzymano macierz parametrów
 	\caption{Wynik FFT z nałożonym bankiem filtrów}
 	\label{rys:fftFiltry}
 \end{figure}
+
+
+\subsection{Sprawdzenie powtarzalności wyników}
+
+Analizowanie i porównanie wartości otrzymanych parametrów liczbowych może być czasochłonne. W związku z tym, by szybko otrzymać poglądowe wyniki podobieństw pomiędzy kolejnymi nagraniami słowa, wykorzystano mapę kolorów (dany kolor odpowiada określonej liczbie). Dzięki niej można obejrzeć naraz wszystkie wyniki i ocenić, jak bardzo są do siebie podobne. Na rysunku \ref{rys:fotel_param} pokazano takie mapy dla słowa ,,fotel``. Nasuwa się tutaj kilka wniosków:
+
+\begin{itemize}
+	\item Macierze nie zawsze są tej samej długości
+	\item Na wszystkich mapach powtarza się kilka miejsc
+	\item Obserwując kolory można zauważyć tendecję do określonych wyników, lecz nie są one jednakowe.
+\end{itemize}
+
+Wprawdzie przedstawione mapy prezentują wybrane słowo wypowiedziane przez jedną osobę, ale to nie znaczy, że wypowiadała je tak samo. Ważną rolę gra tutaj intonacja, szybkość mówienia czy głośność. Niemniej jednak takie właśnie wypowiedzenia powinien rozpoznawać program - różne. Dlatego jest lepiej, kiedy baza wzorców jest choć trochę zróżnicowana.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{fotel_param}
+	\caption{Wartości dla kolejnych powtórzeń słowa ,,fotel`` przedstawione za pomocą kolorów}
+	\label{rys:fotel_param}
+\end{figure}
+
+
+\section{Testowanie skuteczności programu}
+
+Nagrania testowe - czyli te, w których należy szukać wybranych słów - to wypowiedziane zdania zawierające co najmniej jeden z szukanych wyrazów. Zostały one poddane działaniom dokładnie takich samych algorytmów, jak wzorce. Po tych obliczeniach należy wyliczyć współczynnik korelacji między poszczególnymi fragmentami nagrań testowych a wzorcami. Jeśli otrzymana wartość jest większa od ustalonego progu (w projekcie została wyykorzystana wartość 0,85) - słowo zostało znalezione. 
