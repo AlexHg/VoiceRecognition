@@ -1,9 +1,9 @@
 clearvars
 
-a = load('mat/krzesla.mat', 'coeffs');
+a = load('mat/ksiazkiMK.mat', 'coeffs');
 %a = load('mat/fotele.mat', 'coeffs');
 % b = load('mat/ksiazki.mat', 'coeffs');
-b = load('mat/krzesla.mat', 'coeffs');
+b = load('mat/ksiazkiMK.mat', 'coeffs');
 
 a= a.coeffs;
 b = b.coeffs;

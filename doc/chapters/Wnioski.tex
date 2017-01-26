@@ -1,16 +1,16 @@
 \section{Wnioski}
 
-Na podstawie uzyskanych wyników, 
-rzeczy które można ulepszyć:
+Na podstawie uzyskanych wyników, zostały wysunięte następujące wnioski:
 
-\subsubsection{Podział nagrania na słowa}
-Automatyczny podział nagrania na słowa, w przeciwieństwie do zastosowanego podziału ręcznego, pozwoliłby uniknąć różnic w bazie wzorców spowodowanych niedokładnością określenia początku i końca słowa. Przyspieszyłby proces i łatwość tworzenia bazy wzorców, co pozwoliłoby na przeprowadzenia większej ilości badań i, co za tym idzie, stworzenia potężniejszej bazy wzorców.
+\subsection{Podział nagrania na słowa}
+Automatyczny podział nagrania na słowa, w przeciwieństwie do zastosowanego podziału ręcznego, pozwoliłby uniknąć różnic w bazie wzorców spowodowanych niedokładnością określenia początku i końca słowa. Przyspieszyłby proces i łatwość tworzenia bazy wzorców, co pozwoliłoby na przeprowadzenia większej ilości badań.
 
-\subsubsection{Wyrównanie poziomu dźwięku}
-Mimo analizy dźwięku w dziedzinie częstotliwości, róźnice w nagraniach spowodowane różną siłą głosu czy odległością od mikrofonu okazały się wystarczające, aby utrudnić skuteczne rozpoznawanie. Częściowo problemy te powinno rozwiązać wyrównanie poziomu analizowanego dźwięku, jak również oczyszczenie go z odgłosów tła tak, aby analizować sam głos.
+\subsection{Wyrównanie poziomu dźwięku}
+Kluczową przeszkodą przy poprawnym rozpoznawaniu słów okazała się różnica w poziomie głośności zdań testowych w porównaniu do bazy wzorców. \\
+Słowa w zdaniach wypowiadanych przez mężczyznę, przy niskiej głośności nagrania najczęściej niepoprawnie dopasowywane były do wzorców żeńskich. \\
+Możliwym usprawnieniem w tej kwestii byłaby normalizacja poziomu głośności, lub też bardziej ogólnie - rozbudowanie wstępnego przetwarzania sygnału celem eliminacji zakłóceń i wyrównania jakości nagrań.
 
-\subsubsection{Klasyfikator}
-Użycie innego klasyfikatora
 
-\subsubsection{Długość trwania wzorca}
-Opracowanie algorytmu oraz klasyfikatora pozwalającego znajdować podobieństwo pomiędzy nagraniami tego samego słowa, ale różnych czasach trwania. 
+\subsection{Klasyfikator}
+W projekcie jako klasyfikatora użyto korelacji pomiędzy macierzami parametrów. Klasyfikator ten ma wiele wad, dla poprawnej klasyfikacji słowa wymaga m. in. by wzorzec i analizowane słowo były dokładnie tej samej długości, zmiana intonacji czy długości trwania pojedynczej głoski uniemożliwia poprawne rozpoznanie. Użycie innego klasyfikatora mogłoby pozwolić ograniczyć wielkość bazy wzorców potrzebnych przy klasyfikacji, pozytywnie wpływając na wynik klasyfikacji jak również prędkość działania programu.
+

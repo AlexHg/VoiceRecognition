@@ -50,7 +50,7 @@ Analizowanie i porównanie wartości otrzymanych parametrów liczbowych może by
 \begin{itemize}
 	\item Macierze nie zawsze są tej samej długości
 	\item Na wszystkich mapach powtarza się kilka miejsc
-	\item Obserwując kolory można zauważyć tendecję do określonych wyników, lecz nie są one jednakowe.
+	\item Obserwując kolory można zauważyć tendencję do określonych wyników, lecz nie są one jednakowe.
 \end{itemize}
 
 Wprawdzie przedstawione mapy prezentują wybrane słowo wypowiedziane przez jedną osobę, ale to nie znaczy, że wypowiadała je tak samo. Ważną rolę gra tutaj intonacja, szybkość mówienia czy głośność. Niemniej jednak takie właśnie wypowiedzenia powinien rozpoznawać program - różne. Dlatego jest lepiej, kiedy baza wzorców jest choć trochę zróżnicowana.
@@ -62,7 +62,30 @@ Wprawdzie przedstawione mapy prezentują wybrane słowo wypowiedziane przez jedn
 	\label{rys:fotel_param}
 \end{figure}
 
+Dodatkowo wygenerowana zastała macierz autokorelacji pomiędzy zapisanymi wzorcami tego samego słowa, pozwala w sposób numeryczny określić powtarzalność parametrów, a zatem  ich przydatności przy rozpoznawania słowa w tekście.
 
+\begin{table}[H]
+	\begin{center}
+\begin{tabular}{ccccccccc}
+	1.0000  &  0.7569  &  0.8986  &  0.6967  &  0.9291  &  0.8563  &  0.9430  &  0.7326  &  0.9471 \\
+	0.7569  &  1.0000  &  0.6380  &  0.2784  &  0.8561  &  0.5085  &  0.7421  &  0.3981  &  0.8139 \\
+	0.8986  &  0.6380  &  1.0000  &  0.8246  &  0.8710  &  0.9142  &  0.8379  &  0.8551  &  0.9038 \\
+	0.6967  &  0.2784  &  0.8246  &  1.0000  &  0.5785  &  0.8809  &  0.6850  &  0.9138  &  0.6520 \\
+	0.9291  &  0.8561  &  0.8710  &  0.5785  &  1.0000  &  0.8092  &  0.8585  &  0.6570  &  0.9260 \\
+	0.8563  &  0.5085  &  0.9142  &  0.8809  &  0.8092  &  1.0000  &  0.7629  &  0.8996  &  0.8141 \\
+	0.9430  &  0.7421  &  0.8379  &  0.6850  &  0.8585  &  0.7629  &  1.0000  &  0.6992  &  0.9130 \\
+	0.7326  &  0.3981  &  0.8551  &  0.9138  &  0.6570  &  0.8996  &  0.6992  &  1.0000  &  0.7081 \\
+	0.9471  &  0.8139  &  0.9038  &  0.6520  &  0.9260  &  0.8141  &  0.9130  &  0.7081  &  1.0000 
+\end{tabular} 
+	\end{center}
+	\caption{Korelacja pomiędzy powtórzeniami słowa ,,książka``}
+	\label{ControlTable}
+\end{table}
+
+Na podstawie wygenerowanych \textit{heatmap} oraz macierzy korelacji, parametry poszczególnych słów uznane zostały za powtarzalne i tym samym możliwe do detekcji w nagraniu na podstawie wartości wzorcowych.
+
+\newpage
+ 
 \section{Testowanie skuteczności programu}
 
-Nagrania testowe - czyli te, w których należy szukać wybranych słów - to wypowiedziane zdania zawierające co najmniej jeden z szukanych wyrazów. Zostały one poddane działaniom dokładnie takich samych algorytmów, jak wzorce. Po tych obliczeniach należy wyliczyć współczynnik korelacji między poszczególnymi fragmentami nagrań testowych a wzorcami. Jeśli otrzymana wartość jest większa od ustalonego progu (w projekcie została wyykorzystana wartość 0,85) - słowo zostało znalezione. 
+Nagrania testowe - czyli te, w których należy szukać wybranych słów - to wypowiedziane zdania zawierające co najmniej jeden z szukanych wyrazów. Zostały one poddane działaniom dokładnie takich samych algorytmów, jak wzorce. Po tych obliczeniach należy wyliczyć współczynnik korelacji między poszczególnymi fragmentami nagrań testowych a wzorcami. Jeśli otrzymana wartość jest większa od ustalonego progu (w projekcie została wykorzystana wartość 0,85) - słowo zostało znalezione. 
