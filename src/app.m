@@ -1,9 +1,8 @@
 clear all
 clc
 % filename = 'data/ksiazkaSzklanka.wav';
-%  filename = 'data/zdaniaTestowe/ksiazka_x5_MK.wav';
+ filename = 'data/zdaniaTestowe/ksiazka_krzeslo_fotel_MK.wav';
 % filename = 'data/ksiazkaMK/ksiazka_10_MK.wav';
-filename = 'data/zdaniaTestowe/krzeslo_x3_JP.wav';
 
 dtPart = 0.05;
 matchThreshold = 0.8;
@@ -23,7 +22,7 @@ for i = 1 : totalFrames
         skipNextFramesCounter = skipNextFramesCounter -1;
         continue;
     end
-    % wczytac aktualnie analizowana próbke
+    % wczytac aktualnie analizowana prï¿½bke
     for z = 1 : length(matFiles)
         if (match == true)
             break; 
@@ -45,7 +44,8 @@ for i = 1 : totalFrames
 
           similarity = corelation(word, analyzedFileCoeffs( : , i:i+ wordLength));         
           if (similarity >= matchThreshold)
-              sprintf('Znaleziono slowo! Plik: %s, czas: %f2, podobienstwo: %f2', file, i * dtPart,similarity)
+              text = sprintf('Znaleziono slowo! Plik: %s, czas: %f2, podobienstwo: %f2', file, i * dtPart,similarity);
+              disp(text);
               match = true;
               skipNextFramesCounter = wordLength;
               break;

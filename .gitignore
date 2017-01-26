@@ -75,3 +75,4 @@ octave-workspace
 *.log
 *.pdf
 *.synctex.gz
+*.toc

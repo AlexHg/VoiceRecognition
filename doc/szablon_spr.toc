@@ -5,10 +5,9 @@
 \contentsline {subsection}{\numberline {3.2}Baza wzorc\IeC {\'o}w}{5}
 \contentsline {subsection}{\numberline {3.3}Ekstrakcja parametr\IeC {\'o}w}{5}
 \contentsline {subsection}{\numberline {3.4}Sprawdzenie powtarzalno\IeC {\'s}ci wynik\IeC {\'o}w}{6}
-\contentsline {section}{\numberline {4}Testowanie skuteczno\IeC {\'s}ci programu}{7}
-\contentsline {section}{\numberline {5}Testy}{8}
-\contentsline {section}{\numberline {6}Wnioski}{9}
-\contentsline {subsubsection}{\numberline {6.0.1}Podzia\IeC {\l } nagrania na s\IeC {\l }owa}{9}
-\contentsline {subsubsection}{\numberline {6.0.2}Wyr\IeC {\'o}wnanie poziomu d\IeC {\'z}wi\IeC {\k e}ku}{9}
-\contentsline {subsubsection}{\numberline {6.0.3}Klasyfikator}{9}
-\contentsline {subsubsection}{\numberline {6.0.4}D\IeC {\l }ugo\IeC {\'s}\IeC {\'c} trwania wzorca}{9}
+\contentsline {section}{\numberline {4}Testowanie skuteczno\IeC {\'s}ci programu}{8}
+\contentsline {section}{\numberline {5}Testy}{9}
+\contentsline {section}{\numberline {6}Wnioski}{10}
+\contentsline {subsection}{\numberline {6.1}Podzia\IeC {\l } nagrania na s\IeC {\l }owa}{10}
+\contentsline {subsection}{\numberline {6.2}Wyr\IeC {\'o}wnanie poziomu d\IeC {\'z}wi\IeC {\k e}ku}{10}
+\contentsline {subsection}{\numberline {6.3}Klasyfikator}{10}
