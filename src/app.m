@@ -3,10 +3,10 @@ clc
 % filename = 'data/ksiazkaSzklanka.wav';
 %  filename = 'data/zdaniaTestowe/ksiazka_x5_MK.wav';
 % filename = 'data/ksiazkaMK/ksiazka_10_MK.wav';
-filename = 'data/zdaniaTestowe/wszystko_JP2.wav';
+filename = 'data/zdaniaTestowe/krzeslo_x3_JP.wav';
 
 dtPart = 0.05;
-matchThreshold = 0.85;
+matchThreshold = 0.8;
 
 matDir = 'mat/';
 matFiles = {'ksiazkiAS', 'krzeslaAS', 'foteleAS', 'ksiazkiMK', 'krzeslaMK', 'foteleMK', 'ksiazkiJP', 'krzeslaJP', 'foteleJP'};
